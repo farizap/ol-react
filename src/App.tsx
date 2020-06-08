@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import { AppContext } from './context/context';
-import { Header } from './component/header';
 import { GeoJSON } from 'ol/format';
 import { MainMap } from './component/map/Map';
 import { Tile } from './component/map/Tile';

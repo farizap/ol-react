@@ -115,8 +115,13 @@ const DrawControl = (map: Map): Control => {
 };
 
 export const DrawComp = () => {
+  console.log('draw rerender');
   const mapCtx = React.useContext(MapContext);
-  mapCtx?.addControl(DrawControl(mapCtx));
-  mapCtx?.addLayer(vectorDraw);
+
+  React.useEffect(() => {
+    mapCtx?.addControl(DrawControl(mapCtx));
+    mapCtx?.addLayer(vectorDraw);
+  }, [mapCtx]);
+
   return null;
 };

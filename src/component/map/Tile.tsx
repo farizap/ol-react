@@ -5,11 +5,14 @@ import OSM from 'ol/source/OSM';
 
 export const Tile: React.FC = () => {
   const mapCtx = React.useContext(MapContext);
-  console.log(mapCtx);
-  mapCtx?.addLayer(
-    new TileLayer({
-      source: new OSM(),
-    })
-  );
+
+  React.useEffect(() => {
+    mapCtx?.addLayer(
+      new TileLayer({
+        source: new OSM(),
+      })
+    );
+  }, [mapCtx]);
+
   return null;
 };

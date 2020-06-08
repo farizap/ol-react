@@ -12,19 +12,21 @@ interface Props {
 export const FeatureLayer: React.FC<Props> = ({ features }) => {
   const mapCtx = React.useContext(MapContext);
 
-  const vectorSource = new VectorSource({
-    features: features,
-    format: new GeoJSON({ dataProjection: 'EPSG:3857' }),
-  });
+  React.useEffect(() => {
+    const vectorSource = new VectorSource({
+      features: features,
+      format: new GeoJSON({ dataProjection: 'EPSG:3857' }),
+    });
 
-  const vectorLayer = new VectorImageLayer({
-    source: vectorSource,
-    // style: (features: FeatureLike) => {
-    //   return styleFunction(features, highlights, filters, styles);
-    // },
-    imageRatio: 2,
-  });
+    const vectorLayer = new VectorImageLayer({
+      source: vectorSource,
+      // style: (features: FeatureLike) => {
+      //   return styleFunction(features, highlights, filters, styles);
+      // },
+      imageRatio: 2,
+    });
 
-  mapCtx?.addLayer(vectorLayer);
+    mapCtx?.addLayer(vectorLayer);
+  }, [mapCtx, features]);
   return null;
 };
