@@ -115,7 +115,6 @@ const DrawControl = (map: Map): Control => {
 };
 
 export const DrawComp = () => {
-  console.log('draw rerender');
   const mapCtx = React.useContext(MapContext);
 
   React.useEffect(() => {
