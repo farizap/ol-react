@@ -1,4 +1,4 @@
-name: Batas CI
+name: CI
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 12
       - name: Setup and run tests
-        working-directory: ./batas-scraper
+        working-directory: .
         run: |
           rm -rf node-modules
           export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
